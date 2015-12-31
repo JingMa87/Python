@@ -1,11 +1,11 @@
 import sys
 import pygame
 
-SCREEN_SIZE   = 640,480
+SCREEN_SIZE   = (640,480)
 
 # Object dimensions
-BRICK_WIDTH   = 60
-BRICK_HEIGHT  = 15
+BRICK_WIDTH   = 25
+BRICK_HEIGHT  = 5
 PADDLE_WIDTH  = 70
 PADDLE_HEIGHT = 12
 BALL_DIAMETER = 16
@@ -36,7 +36,7 @@ class Breakout:
         pygame.init()
         
         self.screen = pygame.display.set_mode(SCREEN_SIZE)
-        pygame.display.set_caption("Breakout (by Jing Ma)")
+        pygame.display.set_caption("Breakout (fork by Jing Ma)")
         
         self.clock = pygame.time.Clock()
 
@@ -48,7 +48,7 @@ class Breakout:
         self.init_game()
 
     def init_game(self):
-        self.lives = 3
+        self.lives = 5
         self.score = 0
         self.state = STATE_BALL_IN_PADDLE
 
@@ -62,9 +62,9 @@ class Breakout:
     def create_bricks(self):
         y_ofs = 30
         self.bricks = []
-        for i in range(7):
+        for i in range(14):
             x_ofs = 45  
-            for j in range(8):
+            for j in range(16):
                 self.bricks.append(pygame.Rect(x_ofs,y_ofs,BRICK_WIDTH,BRICK_HEIGHT))
                 x_ofs += BRICK_WIDTH + 10
             y_ofs += BRICK_HEIGHT + 5
@@ -96,18 +96,14 @@ class Breakout:
         self.ball.left += self.ball_vel[0]
         self.ball.top  += self.ball_vel[1]
 
-        if self.ball.left <= 0:
+        if self.ball.left < 0:
             self.ball.left = 0
             self.ball_vel[0] = -self.ball_vel[0]
-        elif self.ball.left >= MAX_BALL_X:
+        elif self.ball.left > MAX_BALL_X:
             self.ball.left = MAX_BALL_X
-            self.ball_vel[0] = -self.ball_vel[0]
-        
-        if self.ball.top < 0:
+            self.ball_vel[0] = -self.ball_vel[0]     
+        elif self.ball.top < 0:
             self.ball.top = 0
-            self.ball_vel[1] = -self.ball_vel[1]
-        elif self.ball.top >= MAX_BALL_Y:            
-            self.ball.top = MAX_BALL_Y
             self.ball_vel[1] = -self.ball_vel[1]
 
     def handle_collisions(self):
