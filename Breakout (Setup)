@@ -1,0 +1,10 @@
+import cx_Freeze
+
+executables = [cx_Freeze.Executable("Breakout.py")]
+
+cx_Freeze.setup(
+    name = "Breakout",
+    options = {"build_exe":{"packages":["pygame"]}},
+    description = "Jing Ma's fork of the classic Breakout arcade game.",
+    executables = executables
+    )
