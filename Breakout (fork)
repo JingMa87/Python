@@ -22,7 +22,9 @@ PADDLE_Y = SCREEN_SIZE[1] - PADDLE_HEIGHT
 BLACK = (0,0,0)
 WHITE = (255,255,255)
 YELLOW  = (255,255,0)
-BRICK_COLOR = (0,0,255)
+BLUE = (0,0,255)
+GREEN = (0,255,0)
+colors = [GREEN,WHITE,BLUE]
 
 # State constants
 STATE_BALL_IN_PADDLE = 0
@@ -70,8 +72,13 @@ class Breakout:
             y_ofs += BRICK_HEIGHT + 5
 
     def draw_bricks(self):
+        newRow = 0
+        index = 0
         for brick in self.bricks:
-            pygame.draw.rect(self.screen, BRICK_COLOR, brick)
+            pygame.draw.rect(self.screen, colors[index], brick)
+            newRow += 1
+            if (newRow % 16 == 0):
+                index = (index + 1) % len(colors)
         
     def check_input(self):
         keys = pygame.key.get_pressed()
