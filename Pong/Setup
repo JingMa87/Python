@@ -1,0 +1,10 @@
+import cx_Freeze
+
+executables = [cx_Freeze.Executable("Pong.py")]
+
+cx_Freeze.setup(
+    name = "Pong",
+    options = {"build_exe":{"packages":["pygame"],"include_files":["beep.wav","endofline.ogg"]}},
+    description = "Jing Ma's fork of the classic Pong arcade game. 2 player mode.",
+    executables = executables
+    )
