@@ -14,7 +14,7 @@ Exponential time: O(10**n)
 '''
 
 # O(1)
-num = 100
+num = 10
 
 def deductOne(num):
     num -= 1
@@ -23,7 +23,7 @@ def deductOne(num):
 print "O(1): ", "\n", deductOne(num), "\n"
 
 # O(log n)
-num = 100
+num = 10
 
 def divide(num):
     while  num > 1:
