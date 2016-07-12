@@ -1,6 +1,6 @@
 '''
 This is the code I used for my youtube tutorial on Big O Notation.
-You can view it here: https://www.youtube.com/watch?v=0PPR5RWhoFI&feature=youtu.be
+You can view it here: www.youtube.com/watch?v=0PPR5RWhoFI&feature=youtu.be
 
 Big O notation is a way of writing down the time complexity of an algorithm.
 Time complexity refers to how fast an algorithm works compared to the input size n.
