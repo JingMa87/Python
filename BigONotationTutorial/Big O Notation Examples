@@ -1,5 +1,5 @@
 '''
-This is the code I used for my youtube tutorial on Big O Notation.
+This is the code I used for my youtube tutorial on Big O Notation (Python 3).
 You can view it here: www.youtube.com/watch?v=0PPR5RWhoFI&feature=youtu.be
 
 Big O notation is a way of writing down the time complexity of an algorithm.
@@ -21,7 +21,7 @@ def deductOne(num):
     num -= 1
     return num
     
-print "O(1): ", "\n", deductOne(num), "\n"
+print("O(1): ", "\n", deductOne(num), "\n")
 
 # O(log n)
 num = 10
@@ -32,9 +32,9 @@ def divide(num):
         print(num)
     return num
 
-print "O(log n): "
+print("O(log n): ")
 divide(num)
-print
+print()
 
 # O(n)
 num = 10
@@ -46,9 +46,9 @@ def addOnesToTestList(num):
         print(testList)
     return testList
 
-print "O(n): "
+print("O(n): ")
 addOnesToTestList(num)
-print
+print()
 
 # O(n log n)
 testList = [1, 43, 31, 21, 6, 96, 48, 13, 25, 5]
@@ -56,12 +56,12 @@ testList = [1, 43, 31, 21, 6, 96, 48, 13, 25, 5]
 def mergeSort(testList):
     if len(testList) < 2:
         return testList
-    middle = len(testList) / 2
+    middle = int(len(testList) / 2)
     left = mergeSort(testList[:middle])
     right = mergeSort(testList[middle:])
     result = []
-    print "Left: ", left
-    print "Right: ", right
+    print("Left: ", left)
+    print("Right: ", right)
     while len(left) > 0 and len(right) > 0:
         if left[0] <= right[0]:
             result.append(left[0])
@@ -71,12 +71,12 @@ def mergeSort(testList):
             right.pop(0)
     result += left
     result += right
-    print "Result: ", result
+    print("Result: ", result)
     return result
 
-print "O(n log n): "
+print("O(n log n): ")
 mergeSort(testList)
-print
+print()
 
 # O(n**2)
 testList = [1, 43, 31, 21, 6, 96, 48, 13, 25, 5]
@@ -86,11 +86,10 @@ def bubbleSort(testList):
         for j in range(i+1, len(testList)):
             if testList[j] < testList[i]:
                 testList[j], testList[i] = testList[i], testList[j]
-            print testList    
+            print(testList)
 
-print "O(n**2): "
+print("O(n**2): ")
 bubbleSort(testList)
-print
 
 # O(10**n): trying to break a password by testing every possible combination
 # (assuming numerical password of length N)
